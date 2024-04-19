@@ -29,5 +29,9 @@ class Produto{
   #nome = 'Mesa'
   #preco = 299.99
   #estoque = 100
+
+  get (id, nome, preco, estoque){
+    return this.#id, this.#nome, this.#preco, this.#estoque
+}
 }
 
