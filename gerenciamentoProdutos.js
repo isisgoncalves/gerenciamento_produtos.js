@@ -32,6 +32,44 @@ class Produto{
 
   get (id, nome, preco, estoque){
     return this.#id, this.#nome, this.#preco, this.#estoque
+  }
+  set (preco = value, estoque = value){
+    if(value < 0){
+      value = 0
+    }
+    this.#preco = value
+    this.#estoque = value
+  }
+  
+  constructor(preco, estoque){
+    this.#preco = preco
+    this.#estoque = estoque
+  } 
+  
+  addEstoque(quantidade){
+    this.#estoque += qtd
+    console.log(`${qtd} unidades adicionadas ao estoque de ${this.#nome}.`)
+  }
+
+  removeEstoque(qtd){
+    if (qtd <= this.#estoque) {
+      this.#estoque -= qtd
+      console.log(`${qtd} unidades removidas do estoque de ${this.#nome}.`)
+    } else {
+      console.log(`Não há unidades suficientes de ${this.#nome} em estoque.`)
+    }
+  }
+
+  atualizarPreco(novoPreco) {
+    this.preco = novoPreco
+    console.log(`Preço de ${this.#nome} atualizado para R$ ${this.preco}.`)
+  }
 }
-}
+
+  novoEstoque = 20
+  preco = new novoPreco(199.99)
+  estoque = new Estoque(qtd)
+    
+
+
 
