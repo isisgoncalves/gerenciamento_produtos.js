@@ -27,10 +27,10 @@ Crie, também, uma classe chamada ProdutoImportado, que herda as propriedades e 
 //Classe Produto com propriedades privadas
 class Produto{
     //Tive que instanciar os valores, pois o console não estava lendo-os fora da classe. 
-    #id = 0
-    #nome = ''  
-    #preco = 0.00
-    #estoque = 0
+    #id
+    #nome
+    #preco
+    #estoque
 
   //Método construtor para inicializar as propriedades privadas
   constructor(id, nome, preco, estoque){
@@ -81,8 +81,8 @@ class Produto{
 
   //Nova classe ProdutoImportado - que herda propriedades e métodos da classe Produto
   class ProdutoImportado extends Produto{
-    #paisDeOrigem = ''
-    #txImport = 0
+    #paisDeOrigem
+    #txImport
 
     constructor(id, nome, preco, estoque, paisDeOrigem, txImport){
       //Chamando o construtor da classe Produto
