@@ -24,52 +24,63 @@ Testar o sistema criado com exemplos de uso, demonstrando a funcionalidade de to
 Crie, também, uma classe chamada ProdutoImportado, que herda as propriedades e métodos da classe Produto, e adiciona uma nova propriedade específica para produtos importados, como por exemplo, o país de origem e taxa de importação de um determinado produto.
 */
 
+//Classe Produto com propriedades privadas
 class Produto{
-  #id = 11
-  #nome = 'Mesa'
-  #preco = 299.99
-  #estoque = 100
+  //Tive que instanciar os valores, pois o console não estava lendo-os fora da classe. 
+    #id = 22
+    #nome = 'Smartphone'  
+    #preco = 2999.00
+    #estoque = 150
 
-  get (id, nome, preco, estoque){
-    return this.#id, this.#nome, this.#preco, this.#estoque
-  }
-  set (preco = value, estoque = value){
-    if(value < 0){
-      value = 0
-    }
-    this.#preco = value
-    this.#estoque = value
-  }
-  
-  constructor(preco, estoque){
+//Método construtor para inicializar as propriedades privadas
+  constructor(id, nome, preco, estoque){
+//Propriedades privadas
+    this.#id = id
+    this.#nome = nome  
     this.#preco = preco
     this.#estoque = estoque
-  } 
-  
-  addEstoque(quantidade){
-    this.#estoque += qtd
-    console.log(`${qtd} unidades adicionadas ao estoque de ${this.#nome}.`)
+    }
+
+//Método Get para obter propriedades
+  getId(){
+    return this.#id
+  }
+  getNome(){
+    return this.#nome 
+  }
+  getPreco(){
+    return this.#preco 
+  }
+  getEstoque(){
+    return this.#estoque
   }
 
+//Método para atualizar o preço do produto
+  atualizaPreco(novoPreco){
+    this.#preco = novoPreco
+    console.log(`Preço de ${this.#nome} atualizado para R$ ${this.#preco}`)
+  }
+
+//Método para adicionar unidades ao estoque
+  addEstoque(qtd){
+    this.#estoque += qtd
+    console.log(`${qtd} unidades adicionadas ao estoque de ${this.#nome}`)
+  }
+
+//Método para remover unidades do estoque
   removeEstoque(qtd){
-    if (qtd <= this.#estoque) {
-      this.#estoque -= qtd
-      console.log(`${qtd} unidades removidas do estoque de ${this.#nome}.`)
-    } else {
-      console.log(`Não há unidades suficientes de ${this.#nome} em estoque.`)
+    if (qtd > this.#estoque){
+      console.log('Estoque Insuficiente')
+    } else{
+        this.#estoque -= qtd
+        console.log(`${qtd} unidades removidas do estoque de ${this.#nome}`)
     }
   }
 
-  atualizarPreco(novoPreco) {
-    this.preco = novoPreco
-    console.log(`Preço de ${this.#nome} atualizado para R$ ${this.preco}.`)
-  }
 }
 
-  novoEstoque = 20
-  preco = new novoPreco(199.99)
-  estoque = new Estoque(qtd)
-    
-
-
-
+//Instâncias de Produto - Tive que instancia-los novamente, pois o console não estava lendo-os fora da classe.
+ let produto = new Produto(22, 'Smartphone', 2999.00, 150)
+ produto.addEstoque (50)
+ produto.removeEstoque (89)
+ produto.atualizaPreco (2599.00)
