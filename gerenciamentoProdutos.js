@@ -29,7 +29,7 @@ class Produto{
     //Tive que instanciar os valores, pois o console não estava lendo-os fora da classe. 
     #id = 0
     #nome = ''  
-    #preco = 0
+    #preco = 0.00
     #estoque = 0
 
   //Método construtor para inicializar as propriedades privadas
@@ -58,7 +58,7 @@ class Produto{
   //Método para atualizar o preço do produto
   atualizaPreco(novoPreco){
     this.#preco = novoPreco
-    console.log(`Preço de ${this.#nome} atualizado para R$ ${this.novoPreco}`)
+    console.log(`Preço de ${this.#nome} atualizado para R$ ${this.#preco}`)
   }
 
   //Método para adicionar unidades ao estoque
@@ -103,18 +103,15 @@ class Produto{
       console.log(`País de origem de ${this.nome} é: ${this.#paisDeOrigem}.`)
   }
 }
-/*atualizaPreco(novoPreco){
-    this.#preco = novoPreco
-    console.log(`Preço de ${this.#nome} atualizado para R$ ${this.#preco}`)
-  }*/
-//Instâncias de Produto - Tive que instancia-los novamente, pois o console não estava lendo-os.
+
+//Instâncias de Produto
  let produto = new Produto(22, 'Smartphone', 2999.00, 150)
+ produto.atualizaPreco (2599.00)
  produto.addEstoque (50)
  produto.removeEstoque (89)
- produto.atualizaPreco (2599.00)
 
 //Instância de Produto Importado
-let produto2 = new Produto(22, 'Smartphone', 2999.00, 150)
+let produto2 = new Produto(25, 'Smartphone X', 5999.00, 5)
+produto2.atualizaPreco (5599.00)
 produto2.addEstoque (50)
-produto2.removeEstoque (89)
-produto2.atualizaPreco (2599.00)
+produto2.removeEstoque (45)
