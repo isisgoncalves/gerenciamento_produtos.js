@@ -74,13 +74,37 @@ class Produto{
     } else{
         this.#estoque -= qtd
         console.log(`${qtd} unidades removidas do estoque de ${this.#nome}`)
+      }
     }
+    
   }
 
+//Nova classe ProdutoImportado - que herda propriedades e métodos da classe Produto
+  class ProdutoImportado extends Produto{
+    #paisDeOrigem = 'EUA'
+    #txImport = 200.00
+
+    constructor(id, nome, preco, estoque, paisDeOrigem, txImport){
+//Chamando o construtor da classe Produto
+      super(id, nome, preco, estoque)
+      this.#paisDeOrigem = paisDeOrigem
+      this.#txImport = txImport
+    }
+
+//Método Get para obter propriedades
+    getPaisDeOrigem(){
+      return this.#paisDeOrigem
+    }
+    getTxImport(){
+      return this.#txImport
+    }
 }
 
-//Instâncias de Produto - Tive que instancia-los novamente, pois o console não estava lendo-os fora da classe.
+//Instâncias de Produto - Tive que instancia-los novamente, pois o console não estava lendo-os.
  let produto = new Produto(22, 'Smartphone', 2999.00, 150)
  produto.addEstoque (50)
  produto.removeEstoque (89)
  produto.atualizaPreco (2599.00)
+//Instância de Produto Importado
+ let produtoImportado = new ProdutoImportado()
+//console.log('Preço de '${this.#nome})
