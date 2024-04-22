@@ -26,22 +26,22 @@ Crie, também, uma classe chamada ProdutoImportado, que herda as propriedades e 
 
 //Classe Produto com propriedades privadas
 class Produto{
-  //Tive que instanciar os valores, pois o console não estava lendo-os fora da classe. 
-    #id = 22
-    #nome = 'Smartphone'  
-    #preco = 2999.00
-    #estoque = 150
+    //Tive que instanciar os valores, pois o console não estava lendo-os fora da classe. 
+    #id = 0
+    #nome = ''  
+    #preco = 0
+    #estoque = 0
 
-//Método construtor para inicializar as propriedades privadas
+  //Método construtor para inicializar as propriedades privadas
   constructor(id, nome, preco, estoque){
-//Propriedades privadas
+    //Propriedades privadas
     this.#id = id
     this.#nome = nome  
     this.#preco = preco
     this.#estoque = estoque
-    }
+  }
 
-//Método Get para obter propriedades
+  //Método Get para obter propriedades
   getId(){
     return this.#id
   }
@@ -55,19 +55,19 @@ class Produto{
     return this.#estoque
   }
 
-//Método para atualizar o preço do produto
+  //Método para atualizar o preço do produto
   atualizaPreco(novoPreco){
     this.#preco = novoPreco
-    console.log(`Preço de ${this.#nome} atualizado para R$ ${this.#preco}`)
+    console.log(`Preço de ${this.#nome} atualizado para R$ ${this.novoPreco}`)
   }
 
-//Método para adicionar unidades ao estoque
+  //Método para adicionar unidades ao estoque
   addEstoque(qtd){
     this.#estoque += qtd
     console.log(`${qtd} unidades adicionadas ao estoque de ${this.#nome}`)
   }
 
-//Método para remover unidades do estoque
+  //Método para remover unidades do estoque
   removeEstoque(qtd){
     if (qtd > this.#estoque){
       console.log('Estoque Insuficiente')
@@ -79,32 +79,42 @@ class Produto{
     
   }
 
-//Nova classe ProdutoImportado - que herda propriedades e métodos da classe Produto
+  //Nova classe ProdutoImportado - que herda propriedades e métodos da classe Produto
   class ProdutoImportado extends Produto{
-    #paisDeOrigem = 'EUA'
-    #txImport = 200.00
+    #paisDeOrigem = ''
+    #txImport = 0
 
     constructor(id, nome, preco, estoque, paisDeOrigem, txImport){
-//Chamando o construtor da classe Produto
+      //Chamando o construtor da classe Produto
       super(id, nome, preco, estoque)
       this.#paisDeOrigem = paisDeOrigem
       this.#txImport = txImport
     }
 
-//Método Get para obter propriedades
+    //Método Get para obter propriedades
     getPaisDeOrigem(){
       return this.#paisDeOrigem
     }
     getTxImport(){
       return this.#txImport
     }
+    origemPais(novoPais){
+      this.#paisDeOrigem = novoPais
+      console.log(`País de origem de ${this.nome} é: ${this.#paisDeOrigem}.`)
+  }
 }
-
+/*atualizaPreco(novoPreco){
+    this.#preco = novoPreco
+    console.log(`Preço de ${this.#nome} atualizado para R$ ${this.#preco}`)
+  }*/
 //Instâncias de Produto - Tive que instancia-los novamente, pois o console não estava lendo-os.
  let produto = new Produto(22, 'Smartphone', 2999.00, 150)
  produto.addEstoque (50)
  produto.removeEstoque (89)
  produto.atualizaPreco (2599.00)
+
 //Instância de Produto Importado
- let produtoImportado = new ProdutoImportado()
-//console.log('Preço de '${this.#nome})
+let produto2 = new Produto(22, 'Smartphone', 2999.00, 150)
+produto2.addEstoque (50)
+produto2.removeEstoque (89)
+produto2.atualizaPreco (2599.00)
