@@ -58,13 +58,11 @@ class Produto{
   //Método para atualizar o preço do produto
   atualizaPreco(novoPreco){
     this.#preco = novoPreco
-    console.log(`Preço de ${this.#nome} atualizado para R$ ${this.#preco}`)
   }
 
   //Método para adicionar unidades ao estoque
   addEstoque(qtd){
     this.#estoque += qtd
-    console.log(`${qtd} unidades adicionadas ao estoque de ${this.#nome}`)
   }
 
   //Método para remover unidades do estoque
@@ -73,10 +71,16 @@ class Produto{
       console.log('Estoque Insuficiente')
     } else{
         this.#estoque -= qtd
-        console.log(`${qtd} unidades removidas do estoque de ${this.#nome}`)
       }
     }
     
+  exibeInfos(){
+    console.log(`Id: ${this.#id}`)
+    console.log(`Nome: ${this.#nome}`)
+    console.log(`Preço: ${this.#preco}`)
+    console.log(`Estoque: ${this.#estoque}`)
+    }
+
   }
 
   //Nova classe ProdutoImportado - que herda propriedades e métodos da classe Produto
@@ -98,20 +102,21 @@ class Produto{
     getTxImport(){
       return this.#txImport
     }
-    origemPais(novoPais){
-      this.#paisDeOrigem = novoPais
-      console.log(`País de origem de ${this.nome} é: ${this.#paisDeOrigem}.`)
-  }
+
 }
 
 //Instâncias de Produto
- let produto = new Produto(22, 'Smartphone', 2999.00, 150)
- produto.atualizaPreco (2599.00)
- produto.addEstoque (50)
- produto.removeEstoque (89)
+ let produto1 = new Produto(1, 'Smartphone', 2999.00, 150)
+ produto1.atualizaPreco (2599.00)
+ produto1.addEstoque (50)
+ produto1.removeEstoque (41)
+ produto1.exibeInfos()
+ console.log(`\n`)
 
 //Instância de Produto Importado
-let produto2 = new Produto(25, 'Smartphone X', 5999.00, 5)
+let produto2 = new Produto(2, 'Smartphone X', 5999.00, 5)
 produto2.atualizaPreco (5599.00)
 produto2.addEstoque (50)
-produto2.removeEstoque (45)
+produto2.removeEstoque (15)
+produto2.exibeInfos()
+console.log(`\n`)
